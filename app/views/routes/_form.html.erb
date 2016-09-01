@@ -10,7 +10,9 @@
       <%= f.text_field :endcoords %>
     </div>
   </div>
-    
   
+  <%= f.label :departs_at %>
+  <%= f.text_field :departs_at, class: 'datepicker' %>
+  <br>  
   <%= f.submit 'Calculate!', class: 'ui button' %>
 <% end %>

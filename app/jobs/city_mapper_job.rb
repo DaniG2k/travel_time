@@ -14,6 +14,6 @@ class CityMapperJob < ApplicationJob
     
     response = JSON.parse(HTTParty.get(str).body)
     
-    route.update travel_time: response['travel_time_minutes']
+    route.update(travel_time: response['travel_time_minutes'])
   end
 end
