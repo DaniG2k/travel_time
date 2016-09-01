@@ -1,0 +1,16 @@
+<%= form_for @route, html: {class: 'ui form'} do |f| %>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :startcoords, 'Start address:' %>
+      <%= f.text_field :startcoords, value: '6-8 Long Lane, London EC1A 9HF' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :endcoords, 'End address:' %>
+      <%= f.text_field :endcoords %>
+    </div>
+  </div>
+    
+  
+  <%= f.submit 'Calculate!', class: 'ui button' %>
+<% end %>

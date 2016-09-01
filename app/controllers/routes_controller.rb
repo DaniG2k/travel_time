@@ -6,14 +6,25 @@ class RoutesController < ApplicationController
   end
 
   def create
-    l1 = Location.create(address: params[:route][:startcoords])
-    l2 = Location.create(address: params[:route][:endcoords])
-    @route = Route.new(startcoords: l1.coordinates, endcoords: l2.coordinates)
+    coords1 = if params[:route][:startcoords].present?
+      Location.create(address: params[:route][:startcoords]).coordinates
+    else
+      nil
+    end
+
+    coords2 = if params[:route][:endcoords].present?
+      Location.create(address: params[:route][:endcoords]).coordinates
+    else
+      nil
+    end
+      
+    @route = Route.new(startcoords: coords1, endcoords: coords2)
 
     if @route.save
       @route.set_travel_time!
       redirect_to route_path(@route), notice: 'Route was successfully retrieved!'
     else
+      flash.now[:alert] = 'Bzzz....Brrr....There was a problem!'
       render :new
     end
   end
