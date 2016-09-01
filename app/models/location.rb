@@ -6,6 +6,6 @@ class Location < ApplicationRecord
   after_validation :geocode
 
   def coordinates
-    [longitude, latitude]
+    [latitude, longitude]
   end
 end
