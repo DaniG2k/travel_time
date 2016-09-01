@@ -14,7 +14,7 @@ RSpec.describe 'Location', type: :model do
       location = Location.create(address: '6-8 Long Ln, London EC1A 9HF')
       coords = [location.longitude, location.latitude]
 
-      expect(coords).to eq [51.5199519, -0.0984235]
+      expect(coords).to eq [-0.0984235, 51.5199519]
     end
   end
 end
