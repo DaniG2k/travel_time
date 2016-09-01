@@ -4,4 +4,8 @@ class Location < ApplicationRecord
   after_validation :geocode, if: ->(obj) { obj.address.present? and obj.address_changed? }
   geocoded_by :address
   after_validation :geocode
+
+  def coordinates
+    [longitude, latitude]
+  end
 end
