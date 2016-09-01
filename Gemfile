@@ -49,3 +49,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'geocoder'
 gem 'httparty'
 gem 'sidekiq'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'

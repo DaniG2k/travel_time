@@ -1,11 +1,18 @@
 <h1>Travel Times</h1>
 
-<%= form_for @route do |f| %>
-	<%= f.label :startcoords, 'Start address' %>:
-  <%= f.text_field :startcoords %>
+<%= form_for @route, html: {class: 'ui form'} do |f| %>
+  <div class="two fields">
+    <div class="field">
+      <%= f.label :startcoords, 'Start address:' %>
+      <%= f.text_field :startcoords, placeholder: 'eg. 6-8 Long Lane, London EC1A 9HF' %>
+    </div>
 
-	<%= f.label :endcoords, 'End address' %>:
-  <%= f.text_field :endcoords %>
+    <div class="field">
+      <%= f.label :endcoords, 'End address:' %>
+      <%= f.text_field :endcoords %>
+    </div>
+  </div>
+    
   
-  <%= f.submit 'Calculate!' %>
+  <%= f.submit 'Calculate!', class: 'ui button' %>
 <% end %>
