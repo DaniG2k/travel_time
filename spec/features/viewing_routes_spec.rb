@@ -7,6 +7,6 @@ RSpec.feature 'Users can view travel times' do
     fill_in 'End address', with: 'Euston Rd, London N1 9AL'
     click_button 'Calculate!'
 
-    expect(page).to have_content 'minutes'
+    expect(page).to have_content 'Route was successfully retrieved!'
   end
 end

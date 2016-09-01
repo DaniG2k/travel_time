@@ -5,7 +5,7 @@ class Route < ApplicationRecord
   serialize :startcoords, Array
   serialize :endcoords, Array
 
-  def get_travel_time!
+  def set_travel_time!
     base_uri = 'https://developer.citymapper.com/api/1/traveltime/'
     startcoord = "startcoord=#{startcoords.join('%2C')}"
     endcoord = "endcoord=#{endcoords.join('%2C')}"
@@ -13,6 +13,7 @@ class Route < ApplicationRecord
     time = "time=#{Time.zone.now.iso8601}"
     str = "#{base_uri}?#{startcoord}&#{endcoord}&time_type=arrival&#{key}&#{time}"
     
-    response = HTTParty.get(str)
+    response = JSON.parse(HTTParty.get(str).body)
+    self.travel_time = response['travel_time_minutes']
   end
 end
