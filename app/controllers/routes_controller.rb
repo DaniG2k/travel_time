@@ -9,9 +9,9 @@ class RoutesController < ApplicationController
     l1 = Location.create(address: params[:route][:startcoords])
     l2 = Location.create(address: params[:route][:endcoords])
     @route = Route.new(startcoords: l1.coordinates, endcoords: l2.coordinates)
-    @route.set_travel_time!
 
     if @route.save
+      @route.set_travel_time!
       redirect_to route_path(@route), notice: 'Route was successfully retrieved!'
     else
       render :new
