@@ -12,7 +12,7 @@
   </div>
   
   <%= f.label :departs_at %>
-  <%= f.text_field :departs_at, class: 'datepicker' %>
-  <br>  
+  <%= f.text_field :departs_at, value: Time.zone.now.iso8601 %>
+  <div class="ui divider"></div>
   <%= f.submit 'Calculate!', class: 'ui button' %>
 <% end %>

@@ -9,8 +9,10 @@
   </head>
 
   <body>
-    <%= semantic_flash %>
-    
-    <%= yield %>
+    <div class="ui container">
+      <%= semantic_flash %>
+      <div class="ui dividing header">TravelTime App</div>
+      <%= yield %>
+    </div>
   </body>
 </html>
