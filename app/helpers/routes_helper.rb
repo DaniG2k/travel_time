@@ -19,6 +19,10 @@ module RoutesHelper
           concat content_tag(:li, "Depart at #{time.strftime("%H:%M %P")} and arrive by #{expected.strftime("%H:%M %P")} (travel time is #{route.travel_time} mins)")
         end
       end.html_safe
+    else
+      content_tag :ul do
+        concat content_tag(:li, "No routes currently present.")
+      end.html_safe
     end
   end
 end
