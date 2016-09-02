@@ -1,8 +1,14 @@
-<h1>Route's travel time</h1>
+<h1>Showing route info</h1>
 <%= "Route from #{@route.startcoords} to #{@route.endcoords}" %>
 <br>
 
-<p>
-  Travel time:
-  <%= @route.travel_time %> minutes
-</p>
+<h2 class="ui header">
+  <i class="car icon"></i>
+  <div class="content">
+    Travel time
+    <div class="sub header">
+    	Journey travel time: <%= @route.travel_time %> minutes.
+    	Your expected arrival time is <%= @route.travel_time.minutes.from_now.strftime("%H:%M") %>.
+    </div>
+  </div>
+</h2>
