@@ -8,7 +8,7 @@
     Travel time
     <div class="sub header">
     	Journey travel time: <%= @route.travel_time %> minutes.
-    	Your expected arrival time is <%= @route.travel_time.minutes.from_now.strftime("%H:%M") %>.
+    	Your expected arrival time is <%= expected_arrival_time %>.
     </div>
   </div>
 </h2>

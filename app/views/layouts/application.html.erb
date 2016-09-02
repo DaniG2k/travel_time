@@ -9,11 +9,13 @@
   </head>
 
   <body>
+    <div class="ui menu">
+      <%= link_to "TravelTime App", root_path, class: 'header item' %>
+      <%= link_to 'All routes', routes_path, class: 'item' %>
+      <%= link_to 'New route', new_route_path, class: 'item' %>
+    </div>
     <div class="ui container">
       <%= semantic_flash %>
-      <div class="ui dividing header">
-        <%= link_to "TravelTime App", root_path %>
-      </div>
       <%= yield %>
     </div>
   </body>
