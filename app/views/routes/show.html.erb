@@ -8,7 +8,7 @@
     Travel time
     <div class="sub header">
     	Journey travel time: <%= @route.travel_time %> minutes.
-    	Your expected arrival time is <%= expected_arrival_time %>.
+    	If you leave now, your expected arrival time is <%= expected_arrival_time(@route) %>.
     </div>
   </div>
 </h2>

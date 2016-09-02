@@ -22,7 +22,7 @@ class RoutesController < ApplicationController
       nil
     end
       
-    @route = Route.new(startcoords: coords1, endcoords: coords2)
+    @route = Route.new(startcoords: coords1, endcoords: coords2, departs_at: params[:route][:departs_at])
 
     if @route.save
       @route.set_travel_time!
