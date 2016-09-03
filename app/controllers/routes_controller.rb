@@ -28,7 +28,7 @@ class RoutesController < ApplicationController
       @route.set_travel_time!
       redirect_to route_path(@route), notice: 'Route was successfully retrieved!'
     else
-      flash.now[:alert] = 'Bzzz....Brrr....There was a problem!'
+      flash.now[:alert] = 'Bzzz....Brrr....There was a problem when submitting the form! Please ensure all fields are correct.'
       render :new
     end
   end
