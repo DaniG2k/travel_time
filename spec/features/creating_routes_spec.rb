@@ -6,8 +6,6 @@ RSpec.feature 'Users can create new routes' do
   scenario 'where the end_address of dest1 becomes the start_address of dest2' do
     visit '/routes/new'
 
-    within(:css, "input#route_start_address") do
-      expect(page).to have_content('Euston Rd, London N1 9AL')
-    end
+    expect(page).to have_selector("input[value='Euston Rd, London N1 9AL']")
   end
 end
