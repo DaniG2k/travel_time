@@ -4,7 +4,7 @@ module RoutesHelper
   end
 
   def start_address_value
-    Route.count > 1 ? Route.last.end_address : '6-8 Long Lane, London EC1A 9HF'
+    Route.count > 0 ? Route.last.end_address : '6-8 Long Lane, London EC1A 9HF'
   end
 
   def full_itinerary

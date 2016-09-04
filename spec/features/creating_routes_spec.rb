@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can create new routes' do
   let!(:route) { FactoryGirl.create(:route) }
 
-  scenario 'where the end address of dest1 becomes the start address of dest2' do
+  scenario 'where the end_address of dest1 becomes the start_address of dest2' do
     visit '/routes/new'
 
     within(:css, "input#route_start_address") do
