@@ -32,11 +32,11 @@
 
   <div class="field">
     <%= f.label :visit_duration %>
-    <%= select_tag(:visit_duration, options_for_select([
+    <%= f.select(:visit_duration, options_for_select([
       ['15 mins', 15],
       ['30 mins', 30],
       ['45 mins', 45],
-      ['60 mins', 60]], selected: 30), {class: 'ui selection dropdown'}) %>
+      ['60 mins', 60]], selected: 30)) %>
   </div>
 
   <div class="ui divider"></div>
