@@ -1,3 +1,17 @@
+<% if @route.errors.any? %>
+  <div class="ui error message">
+    <i class="close icon"></i>
+    <div class="header">
+      Bzzz....Brrr....There was a problem when submitting the form!  <%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:
+    </div>
+    <ul class="list">
+    <% @route.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  
 <%= form_for @route, html: {class: 'ui form'} do |f| %>
   <div class="two fields">
     <div class="field">
