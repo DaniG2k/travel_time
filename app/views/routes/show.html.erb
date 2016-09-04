@@ -1,5 +1,5 @@
 <h1>Showing route info</h1>
-<%= "Route from #{@route.startcoords} to #{@route.endcoords}" %>
+<%= "Route from <strong>#{@route.start_address}</strong> to <strong>#{@route.end_address}</strong>.".html_safe %>
 <br>
 
 <h2 class="ui header">

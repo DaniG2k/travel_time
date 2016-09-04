@@ -15,7 +15,7 @@ RSpec.feature 'Users can view travel times' do
     fill_in 'Start address', with: '6-8 Long Lane, London EC1A 9HF'
     click_button 'Calculate!'
 
-    expect(page).to have_content 'Bzzz....Brrr....There was a problem!'
+    expect(page).to have_content 'Bzzz....Brrr....There was a problem when submitting the form! Please ensure all fields are correct.'
   end
 
   scenario 'with arrival time estimate' do
@@ -24,6 +24,6 @@ RSpec.feature 'Users can view travel times' do
     fill_in 'End address', with: 'Victoria St, London SW1E 5ND'
     click_button 'Calculate!'
 
-    expect(page).to have_content 'Your expected arrival time is'
+    expect(page).to have_content 'If you leave now, your expected arrival time is'
   end
 end

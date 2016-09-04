@@ -10,19 +10,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-    coords1 = if params[:route][:startcoords].present?
-      Location.create(address: params[:route][:startcoords]).coordinates
-    else
-      nil
-    end
-
-    coords2 = if params[:route][:endcoords].present?
-      Location.create(address: params[:route][:endcoords]).coordinates
-    else
-      nil
-    end
-      
-    @route = Route.new(startcoords: coords1, endcoords: coords2, departs_at: params[:route][:departs_at])
+    @route = Route.new(route_params)
 
     if @route.save
       @route.set_travel_time!
@@ -38,7 +26,7 @@ class RoutesController < ApplicationController
 
   private
   def route_params
-    params.require(:route).permit(:startcoords, :endcoords, :departs_at)
+    params.require(:route).permit(:start_address, :end_address, :departs_at)
   end
 
   def set_route

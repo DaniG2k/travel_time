@@ -16,7 +16,7 @@ module RoutesHelper
             expected = time + route.travel_time.minutes
           end
           
-          concat content_tag(:li, "Depart at #{time.strftime("%H:%M %P")} and arrive by #{expected.strftime("%H:%M %P")} (travel time is #{route.travel_time} mins)")
+          concat content_tag(:li, "Depart from #{route.start_address} at #{time.strftime("%H:%M %P")} and arrive at #{route.end_address} by #{expected.strftime("%H:%M %P")} (travel time is #{route.travel_time} mins)")
         end
       end.html_safe
     else
