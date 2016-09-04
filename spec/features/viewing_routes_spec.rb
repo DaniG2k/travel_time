@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Users can view travel times' do
+RSpec.feature 'Users can view routes' do
   scenario 'successfully' do
     visit '/'
     fill_in 'Start address', with: '6-8 Long Lane, London EC1A 9HF'

@@ -3,6 +3,10 @@ module RoutesHelper
     route.travel_time.minutes.from_now.strftime("%H:%M %P")
   end
 
+  def start_address_value
+    Route.count > 1 ? Route.last.end_address : '6-8 Long Lane, London EC1A 9HF'
+  end
+
   def full_itinerary
     if @routes.present?
       content_tag :ul do
