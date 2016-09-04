@@ -10,7 +10,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-    @route = Route.new(route_params)
+    @route = Route.new route_params
 
     if @route.save
       @route.set_travel_time!
@@ -25,7 +25,11 @@ class RoutesController < ApplicationController
 
   private
   def route_params
-    params.require(:route).permit(:start_address, :end_address, :departs_at)
+    params.require(:route).permit(
+      :start_address,
+      :end_address,
+      :departs_at,
+      :visit_duration)
   end
 
   def set_route

@@ -11,8 +11,8 @@ module RoutesHelper
         
         @routes.each_with_index do |route, i|
           if i > 0
-            concat content_tag(:li, "Wait 30 minutes...")
-            time = expected + 30.minutes
+            concat content_tag(:li, "Wait #{route.visit_duration} minutes...")
+            time = expected + route.visit_duration.minutes
             expected = time + route.travel_time.minutes
           end
           

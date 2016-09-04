@@ -11,22 +11,34 @@
     </ul>
   </div>
 <% end %>
-  
+
 <%= form_for @route, html: {class: 'ui form'} do |f| %>
   <div class="two fields">
     <div class="field">
-      <%= f.label :start_address, 'Start address:' %>
+      <%= f.label :start_address %>
       <%= f.text_field :start_address, value: '6-8 Long Lane, London EC1A 9HF' %>
     </div>
 
     <div class="field">
-      <%= f.label :end_address, 'End address:' %>
+      <%= f.label :end_address %>
       <%= f.text_field :end_address %>
     </div>
   </div>
   
-  <%= f.label :departs_at %>
-  <%= f.text_field :departs_at, value: Time.zone.now.iso8601 %>
+  <div class="field">
+    <%= f.label :departs_at %>
+    <%= f.text_field :departs_at, value: Time.zone.now.iso8601 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :visit_duration %>
+    <%= select_tag(:visit_duration, options_for_select([
+      ['15 mins', 15],
+      ['30 mins', 30],
+      ['45 mins', 45],
+      ['60 mins', 60]], selected: 30), {class: 'ui selection dropdown'}) %>
+  </div>
+
   <div class="ui divider"></div>
   <%= f.submit 'Calculate!', class: 'ui button' %>
 <% end %>

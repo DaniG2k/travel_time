@@ -1,6 +1,7 @@
 class Route < ApplicationRecord
   include HTTParty
-  validates_presence_of :start_address, :end_address, :departs_at
+  validates_presence_of :start_address, :end_address, :departs_at, :visit_duration
+  #validate :route_within_london
   before_save :geocode_start_address
   before_save :geocode_end_address
 
@@ -34,4 +35,18 @@ class Route < ApplicationRecord
     self.end_lat = coordinates[0]
     self.end_lon = coordinates[1]
   end
+
+  # TODO
+  # Limit to London addresses
+  # def route_within_london
+  #   distance = 20
+  #   center_point = [51.568449, -0.071068]
+  #   box = Geocoder::Calculations.bounding_box(center_point, distance)
+  #   msg = "cannot be outside of London"
+  #   if !end_address.within_bounding_box(box)
+  #     errors.add(:end_address, msg)
+  #   elsif !start_address.within_bounding_box(box)
+  #     errors.add(:start_address, msg)
+  #   end
+  # end
 end
