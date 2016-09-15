@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160904154920) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "routes", force: :cascade do |t|
+  create_table "paths", force: :cascade do |t|
     t.float    "travel_time"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :route do
+  factory :path do
     start_address '6-8 Long Lane, London EC1A 9HF'
     end_address 'Euston Rd, London N1 9AL'
     visit_duration 30
