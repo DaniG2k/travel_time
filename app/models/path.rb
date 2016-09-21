@@ -25,7 +25,7 @@ class Path < ApplicationRecord
   end
 
   def get_nearby_points
-    #raise
+    raise 'A test exception.'
     begin
       city = 'London'
       lat = end_lat
@@ -33,8 +33,8 @@ class Path < ApplicationRecord
       rentify_api_call = "https://api.rentify.com/v2/properties.json?search%5Barea%5D=#{city}&search%5Blat%5D=#{lat}&search%5Blng%5D=#{lng}&search%5Bpage%5D=1&search%5Ball%5D=true"
     
       JSON.parse(HTTParty.get(rentify_api_call).body)
-    rescue Net::OpenTimeout, Net::ReadTimeout
-      # Log here
+    rescue Exception => e
+      puts e.message
     end
   end
 
