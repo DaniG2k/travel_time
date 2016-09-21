@@ -24,6 +24,20 @@ class Path < ApplicationRecord
     end
   end
 
+  def get_nearby_points
+    #raise
+    begin
+      city = 'London'
+      lat = end_lat
+      lng = end_lon
+      rentify_api_call = "https://api.rentify.com/v2/properties.json?search%5Barea%5D=#{city}&search%5Blat%5D=#{lat}&search%5Blng%5D=#{lng}&search%5Bpage%5D=1&search%5Ball%5D=true"
+    
+      JSON.parse(HTTParty.get(rentify_api_call).body)
+    rescue Net::OpenTimeout, Net::ReadTimeout
+      # Log here
+    end
+  end
+
   def geocode_start_address
     coordinates = Geocoder.coordinates start_address
     self.start_lat = coordinates[0]

@@ -21,6 +21,7 @@ class PathsController < ApplicationController
   end
 
   def show
+    @nearby_points = @path.get_nearby_points
   end
 
   private

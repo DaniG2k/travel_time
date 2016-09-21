@@ -7,8 +7,18 @@
   <div class="content">
     Travel time
     <div class="sub header">
-    	Journey travel time: <%= @path.travel_time %> minutes.
-    	If you leave now, your expected arrival time is <%= expected_arrival_time(@path) %>.
+      Journey travel time: <%= @path.travel_time %> minutes.
+      If you leave now, your expected arrival time is <%= expected_arrival_time(@path) %>.
     </div>
   </div>
 </h2>
+
+<p>Nearby points:</p>
+
+<% @nearby_points.with_indifferent_access[:properties].each do |property| %>
+  <p>
+    <%= property['uid'] %>
+    <%= property['address'] %>
+    <%= image_tag property['pic'] %>
+  </p>
+<% end %>
